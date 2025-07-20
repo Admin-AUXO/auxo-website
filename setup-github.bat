@@ -9,7 +9,7 @@ echo 1. Created a repository on GitHub
 echo 2. Have the repository URL ready
 echo.
 
-set /p repo_url="Enter your GitHub repository URL (e.g., https://github.com/username/repo-name.git): "
+set /p repo_url="https://github.com/Admin-AUXO/auxo-website.git"
 
 if "%repo_url%"=="" (
     echo Error: Repository URL cannot be empty
