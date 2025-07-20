@@ -16,6 +16,8 @@ const nextConfig = {
   // Enable static export for GitHub Pages
   output: 'export',
   trailingSlash: true,
+  basePath: '/auxo-website',
+  assetPrefix: '/auxo-website/',
   
   // Performance optimizations
   experimental: {
