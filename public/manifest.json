@@ -1,0 +1,19 @@
+{
+  "name": "AUXO Data Co. - Strategic Data Intelligence",
+  "short_name": "AUXO Data",
+  "description": "We engineer data frameworks that deliver a single source of truth, converting operational complexity into strategic dominance.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111111",
+  "theme_color": "#9ACD32",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "en-US",
+  "orientation": "portrait-primary"
+}

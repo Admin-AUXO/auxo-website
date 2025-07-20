@@ -1,26 +1,183 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #0A0A0A;
+  --foreground: #FFFFFF;
+  
+  /* Custom color variables */
+  --color-pure-white: #FFFFFF;
+  --color-rich-black: #111111;
+  --color-graphite: #2D2D2D;
+  --color-limestone: #F1F1F0;
+  --color-auxo-green: #9ACD32;
+  --color-petrol-ink: #0A3A4A;
+  --color-dark-bg: #0A0A0A;
+  --color-dark-surface: #1A1A1A;
+  --color-dark-border: #333333;
+  
+  /* Font family variables */
+  --font-family-montserrat: var(--font-montserrat), sans-serif;
+  --font-family-cairo: var(--font-cairo), sans-serif;
+  
+  /* Font weight variables */
+  --font-weight-extra-bold: 800;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2d2d2d;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #111111;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+*:focus {
+  outline: 2px solid #9ACD32;
+  outline-offset: 2px;
+}
+
+/* Accessibility: Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  /* Disable all animations and transitions for users who prefer reduced motion */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Static fallback backgrounds for animation components */
+  .hero-scatter-fallback {
+    background: linear-gradient(135deg, #111111 0%, #2D2D2D 50%, #0A0A0A 100%);
+  }
+  
+  .challenge-bleed-fallback {
+    background: linear-gradient(180deg, #111111 0%, #0A0A0A 100%);
+  }
+  
+  .framework-build-fallback {
+    background: linear-gradient(135deg, rgba(10, 58, 74, 0.2) 0%, #0A0A0A 100%);
+  }
+  
+  .impact-flow-fallback {
+    background: linear-gradient(90deg, #0A0A0A 0%, rgba(10, 58, 74, 0.1) 50%, #0A0A0A 100%);
+  }
+  
+  .engagement-network-fallback {
+    background: linear-gradient(135deg, #0A0A0A 0%, rgba(10, 58, 74, 0.2) 100%);
+  }
+  
+  .footer-foundation-fallback {
+    background: linear-gradient(0deg, #0A3A4A 0%, #0A0A0A 100%);
+  }
+}
+
+/* Performance optimizations */
+.animation-particle,
+.animation-element {
+  will-change: transform, opacity;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --color-auxo-green: #B8E532;
+    --color-limestone: #FFFFFF;
+    --color-graphite: #000000;
+  }
+}
+
+/* Ensure animations don't interfere with text selection */
+.animation-container {
+  user-select: none;
+  pointer-events: none;
+}
+
+.animation-container * {
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Ensure content remains selectable */
+.content-layer {
+  user-select: text;
+  pointer-events: auto;
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip to content link for keyboard navigation */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--color-auxo-green);
+  color: var(--color-rich-black);
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1000;
+  font-weight: bold;
+}
+
+.skip-to-content:focus {
+  top: 6px;
+}
+
+/* Ensure sufficient color contrast for all interactive elements */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #9ACD32;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(154, 205, 50, 0.2);
+}
+
+/* Animation performance monitoring */
+@supports (content-visibility: auto) {
+  .animation-container {
+    content-visibility: auto;
+    contain-intrinsic-size: 100vh;
+  }
 }
